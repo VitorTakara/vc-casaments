@@ -1,6 +1,6 @@
-import '/public/styles/main.scss';
-import '/public/styles/components/vc-button.scss';
-import '/public/pages/home/home.scss';
+import '../../public/styles/main.scss';
+import '../../public/styles/components/vc-button.scss';
+import './home.scss';
 
 import { vcFooterHtml } from '/public/components/vc-footer/vc-footer.js';
 import { vcHeaderHtml } from '/public/components/vc-header/vc-header.js';
