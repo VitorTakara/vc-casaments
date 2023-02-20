@@ -13,7 +13,7 @@ const outDir = resolve(__dirname, 'dist')
 
 export default defineConfig({
     root,
-    base: '/vc-casamets/vc-casaments-testes/dist/pages/home/',
+    base: '/vc-casamets/vc-casaments-testes/',
      build: {
         outDir,
         emptyOutDir: true,
