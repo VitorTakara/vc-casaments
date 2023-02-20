@@ -20,7 +20,7 @@ export default defineConfig({
         rollupOptions: {
         input: {
             main: resolve(root, 'index.html'),
-            home: resolve(root, 'pages/home','index.html'),
+            home: resolve(root, 'home','index.html'),
         },
     },
   },
