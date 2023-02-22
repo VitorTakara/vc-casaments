@@ -21,7 +21,8 @@ export default defineConfig({
         input: {
             main: resolve(root, 'index.html'),
             home: resolve(root, 'pages/home','index.html'),
-            // confirmacao: resolve(root, 'pages/confimacao','index.html'),
+            confirmacao: resolve(root, 'pages/confirmacao','index.html'),
+            presentes: resolve(root, 'pages/presentes','index.html'),
         },
     },
   },
