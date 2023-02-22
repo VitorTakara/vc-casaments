@@ -13,6 +13,7 @@
     "vite": "^4.0.0"
   },
   "dependencies": {
+    "@lottiefiles/lottie-js": "^0.4.1",
     "sass": "^1.57.1"
   }
 }

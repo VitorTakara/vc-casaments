@@ -5,8 +5,18 @@ import './home.scss';
 import { vcFooterHtml } from '/public/components/vc-footer/vc-footer.js';
 import { vcHeaderHtml } from '/public/components/vc-header/vc-header.js';
 
+
 document.querySelector('#vc-footer').innerHTML = vcFooterHtml;
 document.querySelector('#vc-header').innerHTML = vcHeaderHtml;
+
+[0,1,2,3].forEach(i => {
+	bodymovin.loadAnimation({
+		container: document.querySelector(`#lottie${i}`),
+		path: '../assets/animations/plant.json'
+	})
+})
+
+// document.querySelector('#lottie').innerHTML = `<lottie-player src="${{...plant}}"  background="transparent"  speed="1" muted  loop autoplay></lottie-player>`
 
 window.seeMoreBio = () => {
     document.querySelector('#bio-text-area').classList.add('-see-more');
