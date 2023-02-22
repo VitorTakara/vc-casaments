@@ -4,7 +4,7 @@ import './home.scss';
 
 import { vcFooterHtml } from '/public/components/vc-footer/vc-footer.js';
 import { vcHeaderHtml } from '/public/components/vc-header/vc-header.js';
-
+import plant from '../assets/animations/plant.json';
 
 document.querySelector('#vc-footer').innerHTML = vcFooterHtml;
 document.querySelector('#vc-header').innerHTML = vcHeaderHtml;
@@ -12,7 +12,7 @@ document.querySelector('#vc-header').innerHTML = vcHeaderHtml;
 [0,1,2,3].forEach(i => {
 	bodymovin.loadAnimation({
 		container: document.querySelector(`#lottie${i}`),
-		path: '../assets/animations/plant.json'
+		animationData: plant
 	})
 })
 
