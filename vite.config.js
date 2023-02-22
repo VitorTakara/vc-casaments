@@ -12,7 +12,7 @@ const root = resolve(__dirname, 'src')
 const outDir = resolve(__dirname, 'dist')
 
 export default defineConfig({
-    base: "/vc-casaments/vc-casaments-testes/dist",
+    base: "/vc-casaments",
     root,
      build: {
         outDir,
