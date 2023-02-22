@@ -46,7 +46,10 @@ window.buildInputsFromUrlParams = () => {
     const pParam = urlParams.searchParams.get("p");
 
     // Se não ter parametros
-    if(!convidadosTotal) removeConvidadoInput();
+    if(!convidadosTotal) {
+        removeConvidadoInput();
+        return;
+    }
 
     addConvidadoInput();
 
