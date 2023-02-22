@@ -23,8 +23,10 @@ window.submitForm = () => {
     // localStorage.setItem('formHasAlreadySubmited', true)
 }
 
+window.removeConvidadoInput = () => document.querySelector('#add-convidado-btn').remove();
+
 window.convidadoInputHandler = () => {
-    if(convidadosTotal === 1) document.querySelector('#add-convidado-btn').remove();
+    if(convidadosTotal === 1) removeConvidadoInput();
 
     convidadosTotal--;
 
@@ -43,9 +45,15 @@ window.buildInputsFromUrlParams = () => {
     const urlParams = new URL(location.href);
     const pParam = urlParams.searchParams.get("p");
 
+    // Se não ter parametros
+    if(!convidadosTotal) removeConvidadoInput();
+
     addConvidadoInput();
 
     convidadosTotal = atob(atob(atob(pParam))) - 1;
+    
+    // Handle de casos do convidados for = 1;
+    if(!convidadosTotal) removeConvidadoInput();
 }
 
 buildInputsFromUrlParams();
