@@ -1,0 +1,50 @@
+.confirmacao{
+    >.content{
+        >.form{
+            padding: 30px 20px;
+            min-height: 70vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            >.content{
+
+            >.into-text{
+                margin-bottom: 20px;
+                text-align: center;
+                line-height: 22px;
+                font-size: 14px;
+                max-width: 250px;
+            }
+
+            >.add-convidado-btn{
+                display: block;
+                margin: 15px auto 0 auto;
+                border-width: 1px;
+                font-weight: 500;
+            }
+
+            >.convidados-inputs{
+                display: block;
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 10px;
+
+                >.vc-input{   
+                    max-width: 250px;
+                }
+            }
+
+            >.send-btn{
+                display: block;
+                margin: auto;
+                width: 165px;
+                margin-top: 30px;
+            }
+        }
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import '/public/styles/main.scss';
 import '/public/styles/components/vc-button.scss';
+import '/public/styles/components/vc-input.scss';
 import './confirmacao.scss';
 
 import { vcFooterHtml } from '/public/components/vc-footer/vc-footer.js';
@@ -9,6 +10,7 @@ document.querySelector('#vc-footer').innerHTML = vcFooterHtml;
 document.querySelector('#vc-header').innerHTML = vcHeaderHtml;
 
 let convidadosTotal;
+let convidadosTotalReversed = 1;
 
 window.submitForm = () => {
     // Bloqueia usuario de seguir com submit
@@ -29,14 +31,15 @@ window.convidadoInputHandler = () => {
     if(convidadosTotal === 1) removeConvidadoInput();
 
     convidadosTotal--;
+    convidadosTotalReversed++;
 
     addConvidadoInput();
 }
 
 window.addConvidadoInput = () => {
     let input = document.createElement('input');
-    input.placeholder = 'Nome do convidado';
-    input.classList.add('convidado-input');
+    input.placeholder = `Nome do convidado ${convidadosTotalReversed}`;
+    input.classList.add('vc-input');
 
     document.querySelector('#convidados-inputs').appendChild(input);
 }

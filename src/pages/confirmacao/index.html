@@ -16,15 +16,23 @@
 <body class="confirmacao">
     <div id="vc-header"></div>
     
-    <div>
-        <form>
-            <div id="convidados-inputs"></div>
-            <button type="button" id="add-convidado-btn" onclick="convidadoInputHandler()">+</button>
-            
+    <main class="content">
+        <form class="form">
+            <div class="content">
+                <div class="into-text">
+                    Olá, tudo bem? Por favor, Confirme abaixo a sua presença e de seus acompanhantes! A confirmação é obrigatória.
+                </div>
 
-            <button class="vc-button" type="button" onclick="submitForm()">Enviar</button>
+                <div class="convidados-inputs" id="convidados-inputs">
+
+                </div>
+
+                <button class="vc-button -small -rounded add-convidado-btn" type="button" id="add-convidado-btn" onclick="convidadoInputHandler()">+ Adicionar convidado</button>
+
+                <button class="vc-button -fill send-btn" type="button" onclick="submitForm()">Enviar</button>
+            </div>
         </form>
-    </div>
+    </main>
 
     <div id="vc-footer"></div>
 </body>

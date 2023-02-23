@@ -13,4 +13,20 @@
         background: var(--color-primary);
         color: white;
     }
+
+    &.-fill{
+        background: var(--color-primary);
+        color: white;
+        font-weight: 600;
+    }
+
+    &.-rounded{
+        border-radius: 50px;
+    }
+
+    &.-small{
+        padding: 8px 15px;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
 }
