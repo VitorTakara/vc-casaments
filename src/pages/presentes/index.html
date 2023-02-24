@@ -11,11 +11,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@100&family=Rosario:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-
-    
     <script type="module" src="presentes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-<body>
-    presentes
+<body class="presentes">
+    <div id="vc-header"></div>
+    
+    <main class="content">
+        <div class="step grid-present" id="step-1"></div>
+
+        <div class="step -hide" id="step-2">
+            <div class="wrapper">
+                <p class="intro-text">Muito obrigado por nos presentear! Complete por favor abaixo com o seu nome e uma mensagem :)</p>
+
+                <input class="vc-input" placeholder="Nome completo">
+
+                <textarea rows="4" class="vc-input" placeholder="Mensagem"></textarea>
+
+                <button class="vc-button -fill" onclick="changeStep(3)">Ir para pagamento</button>
+            </div>
+        </div>
+
+        <div class="step -hide" id="step-3">
+            <div class="wrapper">
+                <p class="intro-text">Escaneie o código abaixo usando o aplicativo do seu banco</p>
+                <div id="qrcode"></div>
+                <button class="vc-button" onclick="changeStep(4)">Finalizar</button>
+            </div>
+        </div>
+
+        <div class="step -hide -4" id="step-4">
+            <div class="wrapper">
+                <p class="intro-text">Obrigado!! Você voltará pra lista de presentes em 5 segundos...</p>
+            </div>
+        </div>
+    </main>
+
+    <div id="vc-footer"></div>
 </body>
 </html>

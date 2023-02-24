@@ -1,0 +1,66 @@
+.presentes{
+    >.content{
+        >.grid-present{
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 15px;
+            padding: 15px;
+
+            >.present-card{
+                border: 1px solid var(--color-gray-lightest);
+                border-radius: 15px;
+                padding: 14px;
+                display: flex;
+                flex-flow: column;
+                gap: 15px; 
+                text-align: center;
+
+                >.image{
+                    border-radius: 15px;
+                    overflow: hidden;
+                    width: 100%;
+                    >img{
+                        width: 100%;
+
+                    }
+                }
+
+                >.title{
+                    font-weight: 600;
+                    margin-top: 15px;
+                }
+
+                >.price{
+                    font-size: 14px;
+                }
+
+                >.btn-wrapper{
+
+                }
+            }
+        }
+
+        >.step{
+            &.-hide{
+               opacity: 0; 
+               height: 0;
+               width: 0;
+               overflow: hidden;
+            }
+
+            >.wrapper{
+                display: flex;
+                flex-flow: column;
+                gap: 15px;
+                padding: 15px;
+                max-width: 300px;
+                margin: 30px auto;
+                text-align: center;
+            }
+
+            >.intro-text{
+                line-height: 25px;
+            }
+        }
+    }
+}
