@@ -57,12 +57,11 @@ window.updateView = () => {
     document.querySelector(`#step-${step}`).classList.remove('-hide');
 
     // Tela de sucesso handler
-    if(step === 4){
+    if(step === 4)
         setTimeout(() => {
-          step = 1;
-          updateView();  
+            step = 1;
+            updateView();  
         }, 5000);
-    }
 }
 
 window.generatePixQrCode = () => {
