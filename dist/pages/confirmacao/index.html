@@ -12,24 +12,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@100&family=Rosario:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     
-  <script type="module" crossorigin src="/vc-casaments/assets/confirmacao-6f6fd0fe.js"></script>
-  <link rel="modulepreload" crossorigin href="/vc-casaments/assets/main-c8068ec8.js">
-  <link rel="modulepreload" crossorigin href="/vc-casaments/assets/vc-header-c8ceb47e.js">
-  <link rel="stylesheet" href="/vc-casaments/assets/main-a2dc1327.css">
-  <link rel="stylesheet" href="/vc-casaments/assets/vc-header-adcba7f4.css">
+  <script type="module" crossorigin src="/vc-casaments/assets/confirmacao-e2083a57.js"></script>
+  <link rel="modulepreload" crossorigin href="/vc-casaments/assets/vc-header-8c13a6be.js">
+  <link rel="stylesheet" href="/vc-casaments/assets/vc-header-ea56a096.css">
+  <link rel="stylesheet" href="/vc-casaments/assets/index-63ea5f30.css">
+  <link rel="stylesheet" href="/vc-casaments/assets/vc-input-69fe26df.css">
 </head>
 <body class="confirmacao">
     <div id="vc-header"></div>
     
-    <div>
-        <form>
-            <div id="convidados-inputs"></div>
-            <button type="button" id="add-convidado-btn" onclick="convidadoInputHandler()">+</button>
-            
+    <main class="content">
+        <form class="form">
+            <div class="content">
+                <div class="into-text">
+                    Olá, tudo bem? Por favor, Confirme abaixo a sua presença e de seus acompanhantes! A confirmação é obrigatória.
+                </div>
 
-            <button class="vc-button" type="button" onclick="submitForm()">Enviar</button>
+                <div class="convidados-inputs" id="convidados-inputs">
+
+                </div>
+
+                <button class="vc-button -small -rounded add-convidado-btn" type="button" id="add-convidado-btn" onclick="convidadoInputHandler()">+ Adicionar convidado</button>
+
+                <button class="vc-button -fill send-btn" type="button" onclick="submitForm()">Enviar</button>
+            </div>
         </form>
-    </div>
+    </main>
 
     <div id="vc-footer"></div>
 </body>
