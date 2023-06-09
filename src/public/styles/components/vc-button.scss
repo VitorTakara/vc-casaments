@@ -1,4 +1,4 @@
-.vc-button{
+.vc-button {
     background: none;
     border: 2px solid var(--color-primary);
     border-radius: 7px;
@@ -14,19 +14,24 @@
         color: white;
     }
 
-    &.-fill{
+    &.-fill {
         background: var(--color-primary);
         color: white;
         font-weight: 600;
     }
 
-    &.-rounded{
+    &.-rounded {
         border-radius: 50px;
     }
 
-    &.-small{
+    &.-small {
         padding: 8px 15px;
         font-size: 12px;
         letter-spacing: 1px;
+    }
+
+    &.--thin {
+        font-weight: 400;
+        border-width: 1px;
     }
 }
