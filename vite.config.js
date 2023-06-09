@@ -23,6 +23,7 @@ export default defineConfig({
             home: resolve(root, 'pages/home','index.html'),
             confirmacao: resolve(root, 'pages/confirmacao','index.html'),
             presentes: resolve(root, 'pages/presentes','index.html'),
+            pagamentoConfirmado: resolve(root, 'pages/pagamento-confirmado','index.html'),
         },
     },
   },
