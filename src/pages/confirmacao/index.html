@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmacao</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@100&family=Rosario:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="module" src="confirmacao.js"></script>
+</head>
+<body class="confirmacao">
+    <div id="vc-header"></div>
+    
+    <main class="content">
+        <form class="form">
+            <div class="content">
+                <div class="into-text">
+                    Olá, tudo bem? Por favor, Confirme abaixo a sua presença e de seus acompanhantes! A confirmação é obrigatória.
+                </div>
+
+                <div class="convidados-inputs" id="convidados-inputs">
+
+                </div>
+
+                <button class="vc-button -small -rounded add-convidado-btn" type="button" id="add-convidado-btn" onclick="convidadoInputHandler()">+ Adicionar convidado</button>
+
+                <button class="vc-button -fill send-btn" type="button" onclick="submitForm()">Enviar</button>
+            </div>
+        </form>
+    </main>
+
+    <div id="vc-footer"></div>
+</body>
+</html>
