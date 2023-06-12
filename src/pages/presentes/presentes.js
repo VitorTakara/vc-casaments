@@ -27,7 +27,7 @@ const presentList = [{
     title: 'Bronze 🤎',
     price: 250,
     img: p250,
-    mp: 'https://www.mercadopago.com.br/payment-link/v1/redirect?preference-id=308997953-ec15336e-3069-4a85-8f9b-b4a40ced94a3&source=link'
+    mp: 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/da951989-0398-4ea8-8246-9f2a6fbe0d4f/payment-option-form/?router-request-id=30120a6a-492d-415d-8a09-c5b2c8434c5d&source=link&preference-id=308997953-ec15336e-3069-4a85-8f9b-b4a40ced94a3&p=5765991c1973d3a6e91b79c210aa1374#/'
 }, {
     id: 2,
     title: 'Prata 🤍',
