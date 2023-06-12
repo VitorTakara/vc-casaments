@@ -11,38 +11,49 @@ import {
 document.querySelector('#vc-footer').innerHTML = vcFooterHtml;
 document.querySelector('#vc-header').innerHTML = vcHeaderHtml;
 
+import Swal from 'sweetalert2';
+
+import p250 from '../../assets/images/gifts/250.jpg';
+import p500 from '../../assets/images/gifts/500.jpg';
+import p1000 from '../../assets/images/gifts/1000.jpg';
+import p2500 from '../../assets/images/gifts/2500.jpg';
+import p5000 from '../../assets/images/gifts/5000.jpg';
+import p10000 from '../../assets/images/gifts/10000.jpg';
+
 let step = 1;
 
 const presentList = [{
     id: 1,
     title: 'Bronze 🤎',
     price: 250,
-    img: '../../assets/images/gifts/250.jpg'
+    img: p250,
+    mp: 'https://www.mercadopago.com.br/payment-link/v1/redirect?preference-id=308997953-ec15336e-3069-4a85-8f9b-b4a40ced94a3&source=link'
 }, {
     id: 2,
     title: 'Prata 🤍',
     price: 500,
-    img: '../../assets/images/gifts/500.jpg'
+    img: p500,
+    mp: 'https://www.mercadopago.com.br/payment-link/v1/redirect?preference-id=308997953-762ad138-f11b-4578-ab08-4a96bca7e385&source=link'
 }, {
     id: 3,
     title: 'Ouro 💛',
     price: 1000,
-    img: '../../assets/images/gifts/1000.jpg'
+    img: p1000
 }, {
     id: 4,
     title: 'Master 💷',
     price: 2500,
-    img: '../../assets/images/gifts/2500.jpg'
+    img: p2500
 }, {
     id: 5,
     title: 'Diamante 💎',
     price: 5000,
-    img: '../../assets/images/gifts/5000.jpg'
+    img: p5000
 }, {
     id: 6,
     title: '✨ Super ✨',
     price: 10000,
-    img: '../../assets/images/gifts/10000.jpg'
+    img: p10000
 }]
 
 window.buildPresentList = () => {
@@ -77,15 +88,40 @@ window.goToPayment = () => {
     let message = document.querySelector("#message").value;
 
     if (!name) {
-        alert("Por favor preencha nome e sobrenome")
+        Swal.fire({
+            title: 'Ops!',
+            text: 'Por favor preencha nome e sobrenome',
+            icon: 'error',
+            confirmButtonText: 'Fechar',
+            confirmButtonColor: 'var(--color-primary)'
+          })
         return;
     }
 
     changeStep(3);
 }
 
-window.openMercadoPago = () => {
-  
+window.openMercadoPago = (paymentMethod) => {
+    Swal.fire({
+        title: `Pagamento no ${paymentMethod === 'pix' ? 'PIX' : 'Cartão'}`,
+        html: 'Para finalizar o pagamento, você será redirecionado para o site oficial do Mercado Pago. <br>Não se preocupe, nós (Caroline e Vitor) garantimos que o processo é 100% seguro.',
+        icon: 'info',
+        confirmButtonText: 'Ir para pagamento',
+        confirmButtonColor: 'var(--color-primary)'
+      }).then(() => {
+        let link = localStorage.getItem("giftlink");
+        if(link) window.location.href = link;
+        else {
+            Swal.fire({
+                title: 'Ops!',
+                text: 'Algo deu errado... Tente novamente mais tarde :(',
+                icon: 'error',
+                confirmButtonText: 'Ok',
+                confirmButtonColor: 'var(--color-primary)'
+              })
+            changeStep(1);
+        }
+      })
 }
 
 window.selectGift = (presentId) => {
@@ -99,6 +135,7 @@ window.selectGift = (presentId) => {
     document.querySelector("#gift-selected-name").innerHTML = giftSelected.title;
 
     localStorage.setItem("gift", giftSelected.price);
+    localStorage.setItem("giftlink", giftSelected.mp);
 
     changeStep(2);
 }

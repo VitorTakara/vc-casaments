@@ -1,5 +1,9 @@
 .presentes {
     >.content {
+        @media (min-width: 600px) {
+            margin: 0 auto;
+            max-width: 600px;
+          }
         #step-1 {
             >.wrapper {
                 max-width: 100%;
@@ -7,7 +11,6 @@
                 gap: 35px;
 
                 >.thank-text {
-
                     display: flex;
                     flex-flow: column;
                     gap: 15px;
@@ -41,6 +44,7 @@
                     padding-bottom: 15px;
 
                     >.present-card {
+                        cursor: pointer;
                         border: 1px solid var(--color-gray-lightest);
                         border-radius: 7px;
                         padding: 14px;
@@ -109,6 +113,7 @@
                     gap: 15px;
 
                     >.card {
+                        cursor: pointer;
                         padding: 20px 10px;
                         display: flex;
                         flex-flow: column;
@@ -136,14 +141,6 @@
                             }
                         }
                     }
-                }
-            }
-        }
-
-        #step-4 {
-            >.wrapper {
-                >.qr-code-area {
-                    max-width: 250px;
                 }
             }
         }

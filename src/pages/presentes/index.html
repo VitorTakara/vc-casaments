@@ -15,20 +15,12 @@
         rel="stylesheet">
 
     <script type="module" src="presentes.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
-        integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body class="presentes">
     <div id="vc-header"></div>
 
     <main class="content">
-        <!-- <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
-data-preference-id="308997953-bdf3afb7-49d5-4f51-bc36-ee473fc6ceae" data-source="button">
-</script> -->
-
-
         <div class="step" id="step-1">
             <div class="wrapper">
                 <div class="thank-text">
@@ -80,14 +72,14 @@ data-preference-id="308997953-bdf3afb7-49d5-4f51-bc36-ee473fc6ceae" data-source=
                 <p class="intro-text">Selecione forma de pagamento:</p>
 
                 <div class="payments-cards">
-                    <div class="card" onclick="openMercadoPago()">
+                    <div class="card" onclick="openMercadoPago('pix')">
                         <div class="img --pix">❖</div>
                         <div class="title">
                             Pix à vista
                         </div>
                     </div>
 
-                    <div class="card" onclick="openMercadoPago()">
+                    <div class="card" onclick="openMercadoPago('cc')">
                         <div class="img">💳</div>
 
                         <div class="title-subtitle">
@@ -100,31 +92,7 @@ data-preference-id="308997953-bdf3afb7-49d5-4f51-bc36-ee473fc6ceae" data-source=
 
             </div>
         </div>
-        </div>
 
-        <div class="step -hide" id="step-4">
-            <div class="wrapper">
-                <p class="intro-text">Escaneie o código abaixo usando o aplicativo do seu banco</p>
-                <div >
-                    <img class="qr-code-area" id="qr-code-area">
-
-                    <button></button>
-                </div>
-                <div>
-                    <button class="vc-button" onclick="changeStep(6)">Finalizar</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="step -hide" id="step-5">
-            CC
-        </div>
-
-        <div class="step -hide -4" id="step-6">
-            <div class="wrapper">
-                <p class="intro-text">Obrigado!! Você voltará pra lista de presentes em 5 segundos...</p>
-            </div>
-        </div>
     </main>
 
     <div id="vc-footer"></div>
