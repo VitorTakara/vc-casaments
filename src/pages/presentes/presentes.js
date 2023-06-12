@@ -94,9 +94,22 @@ window.goToPayment = () => {
             icon: 'error',
             confirmButtonText: 'Fechar',
             confirmButtonColor: 'var(--color-primary)'
-          })
+        })
         return;
     }
+
+    fetch('https://64833b17f2e76ae1b95c2cd2.mockapi.io/api/gift1', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name,
+            message,
+            gift: localStorage.getItem("gift"),
+            date: new Date()
+        })
+    })
 
     changeStep(3);
 }
@@ -108,9 +121,9 @@ window.openMercadoPago = (paymentMethod) => {
         icon: 'info',
         confirmButtonText: 'Ir para pagamento',
         confirmButtonColor: 'var(--color-primary)'
-      }).then(() => {
+    }).then(() => {
         let link = localStorage.getItem("giftlink");
-        if(link) window.location.href = link;
+        if (link) window.location.href = link;
         else {
             Swal.fire({
                 title: 'Ops!',
@@ -118,10 +131,10 @@ window.openMercadoPago = (paymentMethod) => {
                 icon: 'error',
                 confirmButtonText: 'Ok',
                 confirmButtonColor: 'var(--color-primary)'
-              })
+            })
             changeStep(1);
         }
-      })
+    })
 }
 
 window.selectGift = (presentId) => {
