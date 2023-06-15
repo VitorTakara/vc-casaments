@@ -20,6 +20,13 @@ import p2500 from '../../assets/images/gifts/2500.jpg';
 import p5000 from '../../assets/images/gifts/5000.jpg';
 import p10000 from '../../assets/images/gifts/10000.jpg';
 
+import qr250 from '../../assets/images/gifts/qrcode/250.svg';
+import qr500 from '../../assets/images/gifts/qrcode/500.svg';
+import qr1000 from '../../assets/images/gifts/qrcode/1000.svg';
+import qr2500 from '../../assets/images/gifts/qrcode/2500.svg';
+import qr5000 from '../../assets/images/gifts/qrcode/5000.svg';
+import qr10000 from '../../assets/images/gifts/qrcode/10000.svg';
+
 let step = 1;
 
 const presentList = [{
@@ -27,33 +34,39 @@ const presentList = [{
     title: 'Bronze 🤎',
     price: 250,
     img: p250,
-    mp: 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/da951989-0398-4ea8-8246-9f2a6fbe0d4f/payment-option-form/?router-request-id=30120a6a-492d-415d-8a09-c5b2c8434c5d&source=link&preference-id=308997953-ec15336e-3069-4a85-8f9b-b4a40ced94a3&p=5765991c1973d3a6e91b79c210aa1374#/'
+    mp: 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/da951989-0398-4ea8-8246-9f2a6fbe0d4f/payment-option-form/?router-request-id=30120a6a-492d-415d-8a09-c5b2c8434c5d&source=link&preference-id=308997953-ec15336e-3069-4a85-8f9b-b4a40ced94a3&p=5765991c1973d3a6e91b79c210aa1374#/',
+    qr: '00020126400014BR.GOV.BCB.PIX0118vtakaraa@gmail.com5204000053039865406250.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO63041704'
 }, {
     id: 2,
     title: 'Prata 🤍',
     price: 500,
     img: p500,
-    mp: 'https://www.mercadopago.com.br/payment-link/v1/redirect?preference-id=308997953-762ad138-f11b-4578-ab08-4a96bca7e385&source=link'
+    mp: 'https://www.mercadopago.com.br/payment-link/v1/redirect?preference-id=308997953-762ad138-f11b-4578-ab08-4a96bca7e385&source=link',
+    qr: '00020126400014BR.GOV.BCB.PIX0118vtakaraa@gmail.com5204000053039865406500.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO6304A61E'
 }, {
     id: 3,
     title: 'Ouro 💛',
     price: 1000,
-    img: p1000
+    img: p1000,
+    qr: '00020126400014BR.GOV.BCB.PIX0118vtakaraa@gmail.com52040000530398654071000.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO630406F0 '
 }, {
     id: 4,
     title: 'Master 💷',
     price: 2500,
-    img: p2500
+    img: p2500,
+    qr: '00020126580014BR.GOV.BCB.PIX013694266f83-4675-4348-a4ef-1247b6b0d74652040000530398654072500.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO630452EA'
 }, {
     id: 5,
     title: 'Diamante 💎',
     price: 5000,
-    img: p5000
+    img: p5000,
+    qr: '00020126580014BR.GOV.BCB.PIX013694266f83-4675-4348-a4ef-1247b6b0d74652040000530398654075000.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO6304FF10 '
 }, {
     id: 6,
     title: '✨ Super ✨',
     price: 10000,
-    img: p10000
+    img: p10000,
+    qr: '00020126580014BR.GOV.BCB.PIX013694266f83-4675-4348-a4ef-1247b6b0d746520400005303986540810000.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO63044EC6 '
 }]
 
 window.buildPresentList = () => {
@@ -114,9 +127,10 @@ window.goToPayment = () => {
     changeStep(3);
 }
 
-window.openMercadoPago = (paymentMethod) => {
+window.selectPayment = (paymentMethod) => {
+    if(paymentMethod === 'cc')
     Swal.fire({
-        title: `Pagamento no ${paymentMethod === 'pix' ? 'PIX' : 'Cartão'}`,
+        title: 'Pagamento no Cartão',
         html: 'Para finalizar o pagamento, você será redirecionado para o site oficial do Mercado Pago. <br>Não se preocupe, nós (Caroline e Vitor) garantimos que o processo é 100% seguro.',
         icon: 'info',
         confirmButtonText: 'Ir para pagamento',
@@ -135,6 +149,56 @@ window.openMercadoPago = (paymentMethod) => {
             changeStep(1);
         }
     })
+    else {
+        // PIX Mode
+        let giftValue = parseFloat(localStorage.getItem("gift"));
+
+        let img;
+
+        switch (giftValue) {
+            case 250:
+                img = qr250;
+            break;
+
+            case 500:
+                img = qr500;
+            break;
+
+            case 1000:
+                img = qr1000;
+            break;
+
+            case 2500:
+                img = qr2500;
+            break;
+
+            case 5000:
+                img = qr5000;
+            break;
+
+            case 10000:
+                img = qr10000;
+            break;
+        }
+
+        document.querySelector('#qr-code-area').setAttribute('src', img);
+
+        changeStep(4);
+    }
+}
+
+window.copyPixCode = () => {
+    let text = localStorage.getItem("giftqr");
+
+    navigator.clipboard.writeText(text).then(() => {
+        Swal.fire({
+            title: 'Código PIX copiado!',
+            text: 'Cole o código no seu aplicativo de banco e depois clique em no botão finalizar :)',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: 'var(--color-primary)'
+        })
+    });
 }
 
 window.selectGift = (presentId) => {
@@ -149,6 +213,7 @@ window.selectGift = (presentId) => {
 
     localStorage.setItem("gift", giftSelected.price);
     localStorage.setItem("giftlink", giftSelected.mp);
+    localStorage.setItem("giftqr", giftSelected.qr);
 
     changeStep(2);
 }
@@ -166,6 +231,10 @@ window.updateView = () => {
             step = 1;
             updateView();
         }, 5000);
+}
+
+window.redirectToSuccessPage = () => {
+    window.location.href = "https://vitortakara.github.io/vc-casaments/pages/pagamento-confirmado/";
 }
 
 buildPresentList();

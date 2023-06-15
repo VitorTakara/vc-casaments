@@ -3,7 +3,8 @@
         @media (min-width: 600px) {
             margin: 0 auto;
             max-width: 600px;
-          }
+        }
+
         #step-1 {
             >.wrapper {
                 max-width: 100%;
@@ -145,6 +146,31 @@
             }
         }
 
+        #step-4 {
+            >.wrapper {
+                gap: 25px;
+                margin-bottom: 10px;
+
+                >.intro-text {
+                    margin-bottom: 0;
+                }
+
+                >.qr-code-area {
+                    max-width: 250px;
+                }
+
+                >.finish-btn {
+                    display: flex;
+                    flex-flow: column;
+                    gap: 15px;
+                    font-size: 15px;
+                    line-height: 21px;
+                    color: var(--color-gray);
+                    margin-top: 20px;
+                }
+            }
+        }
+
         >.step {
             &.-hide {
                 opacity: 0;
@@ -161,7 +187,7 @@
                     font-size: 13px;
                 }
             }
-            
+
             >.wrapper {
                 display: flex;
                 flex-flow: column;

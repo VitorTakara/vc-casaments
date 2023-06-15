@@ -4,8 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentes</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, user-scalable=0, minimal-ui, maximum-scale=1.0,initial-scale=1, viewport-fit=cover" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <!-- Meta Tags -->
+    <title>🎁 Presentes 🎁</title>
+    <meta name="title" content="🎁 Presentes 🎁" />
+    <meta property="twitter:title" content="🎁 Presentes 🎁" />
+    <meta name="title" property="og:title" content="🎁 Presentes 🎁" />
+
+    <meta name="url" property="og:url" content="https://vitortakara.github.io/vc-casaments/pages/presentes/" />
+    <meta property="twitter:url" content="https://vitortakara.github.io/vc-casaments/pages/presentes/" />
+
+    <meta name="description" content="❤️ Caroline & Vitor - Casamento ❤️" />
+    <meta property="twitter:description" content="❤️ Caroline & Vitor - Casamento ❤️" />
+    <meta name="description" property="og:description" content="❤️ Caroline & Vitor - Casamento ❤️" />
+
+    <meta
+    name="image"
+    property="og:image"
+    content="https://i.imgur.com/idY1cep.jpg"
+    />
+    <meta property="twitter:image" content="https://i.imgur.com/idY1cep.jpg" />
+    <meta name="type" property="og:type" content="website" />
+    <meta property="twitter:card" content="summary_large_image" />
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,14 +99,14 @@
                 <p class="intro-text">Selecione forma de pagamento:</p>
 
                 <div class="payments-cards">
-                    <div class="card" onclick="openMercadoPago('pix')">
+                    <div class="card" onclick="selectPayment('pix')">
                         <div class="img --pix">❖</div>
                         <div class="title">
                             Pix à vista
                         </div>
                     </div>
 
-                    <div class="card" onclick="openMercadoPago('cc')">
+                    <div class="card" onclick="selectPayment('cc')">
                         <div class="img">💳</div>
 
                         <div class="title-subtitle">
@@ -90,6 +117,21 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+        <div class="step -hide" id="step-4">
+            <div class="wrapper">
+                <p class="intro-text">Escaneie o código abaixo usando o aplicativo do seu banco ou copie o código Pix</p>
+                <div >
+                    <img class="qr-code-area" id="qr-code-area">
+
+                    <button class="vc-button -small" onclick="copyPixCode()">Copiar Código Pix</button>
+                </div>
+                <div class="finish-btn">
+                    <div class="text">Após finalizar a transferência, clique no botão abaixo para finalizar</div>
+                    <button class="vc-button -fill" onclick="redirectToSuccessPage()">Finalizar</button>
+                </div>
             </div>
         </div>
 
