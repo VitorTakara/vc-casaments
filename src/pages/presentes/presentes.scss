@@ -57,7 +57,7 @@
                         >.image {
                             width: 100%;
 
-                            >img {
+                            >img, video {
                                 width: 100%;
 
                             }
@@ -102,6 +102,9 @@
 
                 >.image {
                     height: 170px;
+                    >video{
+                        width: 100%;
+                    }
                 }
 
             }

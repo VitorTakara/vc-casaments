@@ -16,9 +16,9 @@ import Swal from 'sweetalert2';
 import p250 from '../../assets/images/gifts/250.jpg';
 import p500 from '../../assets/images/gifts/500.jpg';
 import p1000 from '../../assets/images/gifts/1000.jpg';
-import p2500 from '../../assets/images/gifts/2500.jpg';
-import p5000 from '../../assets/images/gifts/5000.jpg';
-import p10000 from '../../assets/images/gifts/10000.jpg';
+import p2500 from '../../assets/videos/2500.mp4';
+import p5000 from '../../assets/videos/5000.mp4';
+import p10000 from '../../assets/videos/10000.mp4';
 
 import qr250 from '../../assets/images/gifts/qrcode/250.svg';
 import qr500 from '../../assets/images/gifts/qrcode/500.svg';
@@ -53,19 +53,19 @@ const presentList = [{
     id: 4,
     title: 'Master 💷',
     price: 2500,
-    img: p2500,
+    video: p2500,
     qr: '00020126580014BR.GOV.BCB.PIX013694266f83-4675-4348-a4ef-1247b6b0d74652040000530398654072500.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO630452EA'
 }, {
     id: 5,
     title: 'Diamante 💎',
     price: 5000,
-    img: p5000,
+    video: p5000,
     qr: '00020126580014BR.GOV.BCB.PIX013694266f83-4675-4348-a4ef-1247b6b0d74652040000530398654075000.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO6304FF10 '
 }, {
     id: 6,
     title: '✨ Super ✨',
     price: 10000,
-    img: p10000,
+    video: p10000,
     qr: '00020126580014BR.GOV.BCB.PIX013694266f83-4675-4348-a4ef-1247b6b0d746520400005303986540810000.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO63044EC6 '
 }]
 
@@ -78,7 +78,17 @@ window.getPresentCardTemplate = (present) => {
     return `
         <div class="present-card" onclick="selectGift(${present.id})">
             <div class="image">
-                <img src="${present.img}">
+                ${present.img ? `<img src="${present.img}">`:  `
+                <video
+                    src="${present.video}"
+                    loop
+                    muted
+                    autoplay
+                    playsinline
+                    oncanplay="this.play()"
+                    onloadedmetadata="this.muted = true"
+                ></video>
+                ` }
             </div>
 
             <span class="title">${present.title}</span>
@@ -135,7 +145,8 @@ window.selectPayment = (paymentMethod) => {
         icon: 'info',
         confirmButtonText: 'Ir para pagamento',
         confirmButtonColor: 'var(--color-primary)'
-    }).then(() => {
+    }).then((r) => {
+        if(r.isConfirmed){
         let link = localStorage.getItem("giftlink");
         if (link) window.location.href = link;
         else {
@@ -148,6 +159,7 @@ window.selectPayment = (paymentMethod) => {
             })
             changeStep(1);
         }
+    }
     })
     else {
         // PIX Mode
@@ -205,9 +217,27 @@ window.selectGift = (presentId) => {
     const giftSelected = presentList.find(present => present.id === presentId);
 
     let giftSelectedImg = document.querySelector("#gift-selected-img");
-    giftSelectedImg.style.background = `url(${giftSelected.img})`;
-    giftSelectedImg.style.backgroundPosition = 'center';
-    giftSelectedImg.style.backgroundSize = 'cover';
+
+    giftSelectedImg.innerHTML = "";
+    
+    if(giftSelected.img){
+        giftSelectedImg.style.background = `url(${giftSelected.img})`;
+        giftSelectedImg.style.backgroundPosition = 'center';
+        giftSelectedImg.style.backgroundSize = 'cover';
+    } else {
+        giftSelectedImg.insertAdjacentHTML("beforeend", `
+            <video
+                src="${giftSelected.video}"
+                loop
+                muted
+                autoplay
+                playsinline
+                oncanplay="this.play()"
+                onloadedmetadata="this.muted = true"
+            ></video>
+        `)
+                
+    }
 
     document.querySelector("#gift-selected-name").innerHTML = giftSelected.title;
 
