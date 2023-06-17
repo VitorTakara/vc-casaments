@@ -46,9 +46,8 @@
         integrity="sha512-fTTVSuY9tLP+l/6c6vWz7uAQqd1rq3Q/GyKBN2jOZvJSLC5RjggSdboIFL1ox09/Ezx/AKwcv/xnDeYN9+iDDA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
-  <script type="module" crossorigin src="/vc-casaments/assets/home-c2be1f3b.js"></script>
+  <script type="module" crossorigin src="/vc-casaments/assets/home-a63dbef3.js"></script>
   <link rel="modulepreload" crossorigin href="/vc-casaments/assets/vc-header-4e2c27a0.js">
-  <link rel="modulepreload" crossorigin href="/vc-casaments/assets/_commonjsHelpers-28e086c5.js">
   <link rel="stylesheet" href="/vc-casaments/assets/vc-header-f501402f.css">
   <link rel="stylesheet" href="/vc-casaments/assets/index-64daea0d.css">
   <link rel="stylesheet" href="/vc-casaments/assets/vc-button-e26fced5.css">
@@ -246,6 +245,25 @@
         <div id="vc-footer"></div>
     </main>
 
+    <script src="https://unpkg.com/tiny-swiper@latest/lib/index.min.js"></script>
+    <script src="https://unpkg.com/tiny-swiper@latest/lib/modules/pagination.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container',
+        {
+            pagination: {
+                el: ".swiper-plugin-pagination",
+                clickable: true,
+                bulletClass: "swiper-plugin-pagination__item",
+            bulletActiveClass: "is-active"
+            },
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: true
+            },
+            plugins: [SwiperPluginPagination]
+        })
+    </script>
 </body>
 
 </html>
