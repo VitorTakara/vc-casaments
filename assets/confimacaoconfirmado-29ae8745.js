@@ -1,0 +1,1 @@
+import{v as o,a as e}from"./vc-header-b67ae842.js";import{t}from"./thank-2e361d03.js";document.querySelector("#vc-footer").innerHTML=o;document.querySelector("#vc-header").innerHTML=e;const a=bodymovin.loadAnimation({container:document.querySelector("#lottie-thank"),animationData:t,loop:!1});a.setSpeed(2);

@@ -144,8 +144,8 @@
 
             <div class="local">
                 <span class="highlight">Monte Milazzo</span>
-                <span class="text">R. Paulo Antonio Barbosa, 290</span>
-                <span class="text">Jardim Aruja, Arujá - SP</span>
+                <a class="text" target="_blank" href="https://www.google.com/maps/place/Monte+Millazzo/@-23.3760606,-46.3085915,15z/data=!4m2!3m1!1s0x0:0x8fc9c9bfdc4e6eaa?sa=X&ved=2ahUKEwjv-vTWmMv_AhUiR7gEHeA2DIoQ_BJ6BAgmEAg">R. Paulo Antonio Barbosa, 290</a>
+                <a class="text" target="_blank" href="https://www.google.com/maps/place/Monte+Millazzo/@-23.3760606,-46.3085915,15z/data=!4m2!3m1!1s0x0:0x8fc9c9bfdc4e6eaa?sa=X&ved=2ahUKEwjv-vTWmMv_AhUiR7gEHeA2DIoQ_BJ6BAgmEAg">Jardim Aruja, Arujá - SP</a>
             </div>
         </div>
 
@@ -239,22 +239,22 @@
     <script src="https://unpkg.com/tiny-swiper@2.2.0/lib/modules/autoPlay.min.js"></script>
 
     <script>
-        setTimeout(() => {
+        window.addEventListener('load', function () {
             var swiper = new Swiper('.swiper-container', {
                 pagination: {
-                el: ".swiper-plugin-pagination",
-                clickable: true,
-                bulletClass: "swiper-plugin-pagination__item",
-                bulletActiveClass: "is-active"
-            },
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: true
-            },
-            plugins: [SwiperPluginPagination, SwiperPluginAutoPlay]
-        })
-    }, 500);
+                    el: ".swiper-plugin-pagination",
+                    clickable: true,
+                    bulletClass: "swiper-plugin-pagination__item",
+                    bulletActiveClass: "is-active"
+                },
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: true
+                },
+                plugins: [SwiperPluginPagination, SwiperPluginAutoPlay]
+            })
+        });
     </script>
 </body>
 

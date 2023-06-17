@@ -107,7 +107,7 @@ window.submitForm = () => {
 }
 
 window.afterConfirmationFetch = () => {
-    window.location.href = "https://vitortakara.github.io/vc-casaments/pages/confirmacao-confirmada/";
+    window.location.href = "https://vitortakara.github.io/vc-casaments/pages/confirmacao-confirmado/";
     localStorage.setItem('formHasAlreadySubmited', true)
 }
 

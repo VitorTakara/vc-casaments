@@ -43,10 +43,10 @@
         integrity="sha512-fTTVSuY9tLP+l/6c6vWz7uAQqd1rq3Q/GyKBN2jOZvJSLC5RjggSdboIFL1ox09/Ezx/AKwcv/xnDeYN9+iDDA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
-  <script type="module" crossorigin src="/vc-casaments/assets/home-d7f7570c.js"></script>
+  <script type="module" crossorigin src="/vc-casaments/assets/home-2527aedc.js"></script>
   <link rel="modulepreload" crossorigin href="/vc-casaments/assets/vc-header-b67ae842.js">
   <link rel="stylesheet" href="/vc-casaments/assets/vc-header-458c9875.css">
-  <link rel="stylesheet" href="/vc-casaments/assets/index-68a20ddf.css">
+  <link rel="stylesheet" href="/vc-casaments/assets/index-78fa6011.css">
   <link rel="stylesheet" href="/vc-casaments/assets/vc-button-46dbb2bb.css">
 </head>
 
@@ -149,8 +149,8 @@
 
             <div class="local">
                 <span class="highlight">Monte Milazzo</span>
-                <span class="text">R. Paulo Antonio Barbosa, 290</span>
-                <span class="text">Jardim Aruja, Arujá - SP</span>
+                <a class="text" target="_blank" href="https://www.google.com/maps/place/Monte+Millazzo/@-23.3760606,-46.3085915,15z/data=!4m2!3m1!1s0x0:0x8fc9c9bfdc4e6eaa?sa=X&ved=2ahUKEwjv-vTWmMv_AhUiR7gEHeA2DIoQ_BJ6BAgmEAg">R. Paulo Antonio Barbosa, 290</a>
+                <a class="text" target="_blank" href="https://www.google.com/maps/place/Monte+Millazzo/@-23.3760606,-46.3085915,15z/data=!4m2!3m1!1s0x0:0x8fc9c9bfdc4e6eaa?sa=X&ved=2ahUKEwjv-vTWmMv_AhUiR7gEHeA2DIoQ_BJ6BAgmEAg">Jardim Aruja, Arujá - SP</a>
             </div>
         </div>
 
@@ -244,22 +244,22 @@
     <script src="https://unpkg.com/tiny-swiper@2.2.0/lib/modules/autoPlay.min.js"></script>
 
     <script>
-        setTimeout(() => {
+        window.addEventListener('load', function () {
             var swiper = new Swiper('.swiper-container', {
                 pagination: {
-                el: ".swiper-plugin-pagination",
-                clickable: true,
-                bulletClass: "swiper-plugin-pagination__item",
-                bulletActiveClass: "is-active"
-            },
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: true
-            },
-            plugins: [SwiperPluginPagination, SwiperPluginAutoPlay]
-        })
-    }, 500);
+                    el: ".swiper-plugin-pagination",
+                    clickable: true,
+                    bulletClass: "swiper-plugin-pagination__item",
+                    bulletActiveClass: "is-active"
+                },
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: true
+                },
+                plugins: [SwiperPluginPagination, SwiperPluginAutoPlay]
+            })
+        });
     </script>
 </body>
 

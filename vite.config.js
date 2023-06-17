@@ -24,6 +24,7 @@ export default defineConfig({
             confirmacao: resolve(root, 'pages/confirmacao','index.html'),
             presentes: resolve(root, 'pages/presentes','index.html'),
             pagamentoconfirmado: resolve(root, 'pages/pagamento-confirmado','index.html'),
+            confimacaoconfirmado: resolve(root, 'pages/confirmacao-confirmado','index.html'),
         },
     },
   },
