@@ -34,38 +34,42 @@ const presentList = [{
     title: 'Bronze 🤎',
     price: 250,
     img: p250,
-    mp: 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/a9d572cd-5261-4099-b3dc-1fb675f43958/payment-option-form/?router-request-id=5d4835a5-ed47-4d32-a8a8-d5140a75879a&source=link&preference-id=308997953-ec15336e-3069-4a85-8f9b-b4a40ced94a3&p=75d58db4a13119a7cca04eb770bb231f#/',
+    mp: 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/7fd08611-db70-4b54-aaeb-fc82a419342e/payment-option-form/?preference-id=308997953-87621c9f-a2bd-4608-ae5d-21270a23d603&router-request-id=da307e86-f9c9-4fcf-bd33-f6c40e1118c2&source=link&p=75d58db4a13119a7cca04eb770bb231f#/',
     qr: '00020126400014BR.GOV.BCB.PIX0118vtakaraa@gmail.com5204000053039865406250.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO63041704'
 }, {
     id: 2,
     title: 'Prata 🤍',
     price: 500,
     img: p500,
-    mp: 'https://www.mercadopago.com.br/payment-link/v1/redirect?preference-id=308997953-762ad138-f11b-4578-ab08-4a96bca7e385&source=link',
+    mp: 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/8dfbb170-dc9f-4f91-b560-2e873c9214c6/payment-option-form/?router-request-id=529ba9d1-19c1-4270-98ea-4fa6b5a61043&source=link&preference-id=308997953-ebb4acea-64c6-4bcf-822c-0b28913edea1&p=75d58db4a13119a7cca04eb770bb231f#/',
     qr: '00020126400014BR.GOV.BCB.PIX0118vtakaraa@gmail.com5204000053039865406500.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO6304A61E'
 }, {
     id: 3,
     title: 'Ouro 💛',
     price: 1000,
     img: p1000,
+    mp: 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/ccec1820-d210-4cc7-a97e-01b26b9ed82e/payment-option-form/?source=link&router-request-id=ad98d366-eeb3-4807-a8ac-ad5d5c063543&preference-id=308997953-2281074a-8d0a-480e-81f8-b6979f4ffafb&p=75d58db4a13119a7cca04eb770bb231f#/',
     qr: '00020126400014BR.GOV.BCB.PIX0118vtakaraa@gmail.com52040000530398654071000.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO630406F0'
 }, {
     id: 4,
     title: 'Master 💷',
     price: 2500,
     video: p2500,
+    mp: 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/859a07a4-2bb9-4039-9ae6-9358d803fcf0/payment-option-form/?source=link&router-request-id=5c6ae510-b88e-41df-935e-65ad7b65828c&preference-id=308997953-fcafb76a-2979-42b0-a57b-5c0a8430b61a&p=75d58db4a13119a7cca04eb770bb231f#/',
     qr: '00020126580014BR.GOV.BCB.PIX013694266f83-4675-4348-a4ef-1247b6b0d74652040000530398654072500.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO630452EA'
 }, {
     id: 5,
     title: 'Diamante 💎',
     price: 5000,
     video: p5000,
+    mp: 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/2becf63c-a29d-4cdd-a56f-2cae91e8a9cd/payment-option-form/?source=link&router-request-id=87dc7e65-93a5-49be-ba53-bd53c030b779&preference-id=308997953-d926627b-5a12-4193-aa8d-c6feb409001a&p=75d58db4a13119a7cca04eb770bb231f#/',
     qr: '00020126580014BR.GOV.BCB.PIX013694266f83-4675-4348-a4ef-1247b6b0d74652040000530398654075000.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO6304FF10'
 }, {
     id: 6,
     title: '✨ Super ✨',
     price: 10000,
     video: p10000,
+    mp: 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/88d343e9-1ea6-4fef-8b37-07fa3a4dbbda/payment-option-form/?router-request-id=37e0554b-7822-406a-a4ac-0c573f686b1a&source=link&preference-id=308997953-f2ba30dc-4504-4be8-a7c5-1dda25d3bad3&p=75d58db4a13119a7cca04eb770bb231f#/',
     qr: '00020126580014BR.GOV.BCB.PIX013694266f83-4675-4348-a4ef-1247b6b0d746520400005303986540810000.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO63044EC6'
 }]
 
@@ -136,9 +140,9 @@ window.goToPayment = () => {
         },
         body: payload
     }).then((res) => {
-        if(res.ok) return;
+        if (res.ok) return;
 
-        if(res.status === 400)
+        if (res.status === 400)
             fetch('https://64833b17f2e76ae1b95c2cd2.mockapi.io/api/gift2', {
                 method: 'POST',
                 headers: {
@@ -237,6 +241,12 @@ window.copyPixCode = () => {
 
 window.selectGift = (presentId) => {
     const giftSelected = presentList.find(present => present.id === presentId);
+
+    if (giftSelected.price == 250 || giftSelected.price == 500)
+        document.querySelector(`#acrescimo`).classList.remove('-hide');
+    else
+        document.querySelector(`#acrescimo`).classList.add('-hide');
+
 
     let giftSelectedImg = document.querySelector("#gift-selected-img");
 

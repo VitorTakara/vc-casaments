@@ -138,7 +138,15 @@
                         >.title-subtitle {
                             >.title {
                                 font-weight: 600;
+                            }
 
+                            >.subtitle{
+                                font-size: 14px;
+                                margin-top: 5px;
+
+                                &.-hide{
+                                    display: none;
+                                }
                             }
                         }
 
