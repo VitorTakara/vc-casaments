@@ -6,28 +6,28 @@ import { vcFooterHtml } from '/public/components/vc-footer/vc-footer.js';
 import { vcHeaderHtml } from '/public/components/vc-header/vc-header.js';
 import plant from '../../assets/animations/plant.json';
 
-import Swiper, {
-    SwiperPluginLazyload,
-    SwiperPluginPagination
-} from 'tiny-swiper'
-import SwiperPluginAutoPlay from 'tiny-swiper/lib/modules/autoPlay.min.js'
+// import Swiper, {
+//     SwiperPluginLazyload,
+//     SwiperPluginPagination
+// } from 'tiny-swiper'
+// import SwiperPluginAutoPlay from 'tiny-swiper/lib/modules/autoPlay.min.js'
 
-Swiper.use([ SwiperPluginLazyload, SwiperPluginPagination, SwiperPluginAutoPlay  ])
+// Swiper.use([ SwiperPluginLazyload, SwiperPluginPagination, SwiperPluginAutoPlay  ])
 
-	const swiper = new Swiper('.swiper-container',
-	{
-        pagination: {
-          el: ".swiper-plugin-pagination",
-          clickable: true,
-          bulletClass: "swiper-plugin-pagination__item",
-          bulletActiveClass: "is-active"
-        },
-		loop: true,
-		autoplay: {
-            delay: 3000,
-			disableOnInteraction: true
-        }
-	})
+// 	const swiper = new Swiper('.swiper-container',
+// 	{
+//         pagination: {
+//           el: ".swiper-plugin-pagination",
+//           clickable: true,
+//           bulletClass: "swiper-plugin-pagination__item",
+//           bulletActiveClass: "is-active"
+//         },
+// 		loop: true,
+// 		autoplay: {
+//             delay: 3000,
+// 			disableOnInteraction: true
+//         }
+// 	})
 
 document.querySelector('#vc-footer').innerHTML = vcFooterHtml;
 document.querySelector('#vc-header').innerHTML = vcHeaderHtml;
