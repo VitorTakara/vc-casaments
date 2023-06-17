@@ -218,8 +218,11 @@ window.selectGift = (presentId) => {
 
     let giftSelectedImg = document.querySelector("#gift-selected-img");
 
+    // Reset Styles
     giftSelectedImg.innerHTML = "";
+    giftSelectedImg.style.background = `url('')`;
     
+    // Set Bg
     if(giftSelected.img){
         giftSelectedImg.style.background = `url(${giftSelected.img})`;
         giftSelectedImg.style.backgroundPosition = 'center';
