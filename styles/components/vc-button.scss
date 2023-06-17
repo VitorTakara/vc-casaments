@@ -15,7 +15,8 @@
     }
 
     &.-fill {
-        background: var(--color-primary);
+        background: var(--color-primary-light);
+        border-color: var(--color-primary-light);
         color: white;
         font-weight: 600;
     }

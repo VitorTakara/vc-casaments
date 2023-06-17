@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, user-scalable=0, minimal-ui, maximum-scale=1.0,initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=0, minimal-ui, maximum-scale=1.0,initial-scale=1, viewport-fit=cover" />
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -25,11 +26,7 @@
     <meta property="twitter:description" content="Caroline & Vitor - Casamento" />
     <meta name="description" property="og:description" content="Caroline & Vitor - Casamento" />
 
-    <meta
-    name="image"
-    property="og:image"
-    content="https://i.imgur.com/idY1cep.jpg"
-    />
+    <meta name="image" property="og:image" content="https://i.imgur.com/idY1cep.jpg" />
     <meta property="twitter:image" content="https://i.imgur.com/idY1cep.jpg" />
     <meta name="type" property="og:type" content="website" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -46,11 +43,11 @@
         integrity="sha512-fTTVSuY9tLP+l/6c6vWz7uAQqd1rq3Q/GyKBN2jOZvJSLC5RjggSdboIFL1ox09/Ezx/AKwcv/xnDeYN9+iDDA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
-  <script type="module" crossorigin src="/vc-casaments/assets/home-a63dbef3.js"></script>
-  <link rel="modulepreload" crossorigin href="/vc-casaments/assets/vc-header-4e2c27a0.js">
-  <link rel="stylesheet" href="/vc-casaments/assets/vc-header-f501402f.css">
-  <link rel="stylesheet" href="/vc-casaments/assets/index-64daea0d.css">
-  <link rel="stylesheet" href="/vc-casaments/assets/vc-button-e26fced5.css">
+  <script type="module" crossorigin src="/vc-casaments/assets/home-a0890574.js"></script>
+  <link rel="modulepreload" crossorigin href="/vc-casaments/assets/vc-header-b67ae842.js">
+  <link rel="stylesheet" href="/vc-casaments/assets/vc-header-458c9875.css">
+  <link rel="stylesheet" href="/vc-casaments/assets/index-fd8a6d9e.css">
+  <link rel="stylesheet" href="/vc-casaments/assets/vc-button-46dbb2bb.css">
 </head>
 
 <body class="home">
@@ -159,31 +156,23 @@
 
         <div class="swiper-container">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img
-                  src="/vc-casaments/assets/c1-4c68d544.jpg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="/vc-casaments/assets/c2-b23bf1f2.jpg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="/vc-casaments/assets/c3-b9fdcfa2.jpg"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="/vc-casaments/assets/c4-74838972.jpg"
-                />
-              </div>
-           
+                <div class="swiper-slide">
+                    <img src="/vc-casaments/assets/c1-4c68d544.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="/vc-casaments/assets/c2-b23bf1f2.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="/vc-casaments/assets/c3-b9fdcfa2.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="/vc-casaments/assets/c4-74838972.jpg" />
+                </div>
+
             </div>
             <div class="swiper-plugin-pagination"></div>
-          </div>
-      
+        </div>
+
 
         <div class="division">
             <img src="/vc-casaments/assets/plant_division-185f78b7.svg">
@@ -235,34 +224,38 @@
             <div class="content">
                 <p class="simple-text --secondary">
                     Sua presença já será o nosso maior presente, mas caso queira complementar com um mimo,
-                    agradeceremos! :)
+                    agradeceremos! 😊
                 </p>
 
-                <a href="https://vitortakara.github.io/vc-casaments/pages/presentes/" class="vc-button">acesse a lista</a>
+                <a href="https://vitortakara.github.io/vc-casaments/pages/presentes/" class="vc-button">acesse a
+                    lista</a>
             </div>
         </div>
 
         <div id="vc-footer"></div>
     </main>
 
-    <script src="https://unpkg.com/tiny-swiper@latest/lib/index.min.js"></script>
-    <script src="https://unpkg.com/tiny-swiper@latest/lib/modules/pagination.min.js"></script>
+    <script src="https://unpkg.com/tiny-swiper@2.2.0/lib/index.min.js"></script>
+    <script src="https://unpkg.com/tiny-swiper@2.2.0/lib/modules/pagination.min.js"></script>
+    <script src="https://unpkg.com/tiny-swiper@2.2.0/lib/modules/autoPlay.min.js"></script>
+    
     <script>
-        var swiper = new Swiper('.swiper-container',
-        {
-            pagination: {
+        setTimeout(() => {
+            var swiper = new Swiper('.swiper-container', {
+                pagination: {
                 el: ".swiper-plugin-pagination",
                 clickable: true,
                 bulletClass: "swiper-plugin-pagination__item",
-            bulletActiveClass: "is-active"
+                bulletActiveClass: "is-active"
             },
             loop: true,
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: true
             },
-            plugins: [SwiperPluginPagination]
+            plugins: [SwiperPluginPagination, SwiperPluginAutoPlay]
         })
+    }, 500);
     </script>
 </body>
 

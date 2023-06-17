@@ -1,6 +1,27 @@
-.confirmacao{
-    >.content{
-        >.form{
+.confirmacao {
+    >.content {
+        >#confirmed {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            line-height: 30px;
+            font-weight: 600;
+            flex-flow: column;
+            gap: 30px;
+
+            >.text {
+                max-width: 300px;
+            }
+
+            >.vc-button {
+                text-decoration: none;
+            }
+        }
+
+        >.form {
             padding: 30px 20px;
             min-height: 70vh;
             overflow: hidden;
@@ -8,43 +29,71 @@
             align-items: center;
             justify-content: center;
 
-            >.content{
-
-            >.into-text{
-                margin-bottom: 20px;
+            >.content {
                 text-align: center;
-                line-height: 22px;
-                font-size: 14px;
-                max-width: 250px;
-            }
 
-            >.add-convidado-btn{
-                display: block;
-                margin: 15px auto 0 auto;
-                border-width: 1px;
-                font-weight: 500;
-            }
-
-            >.convidados-inputs{
-                display: block;
-                display: flex;
-                flex-flow: column;
-                align-items: center;
-                gap: 10px;
-                margin-bottom: 10px;
-
-                >.vc-input{   
+                .into-text {
+                    margin-bottom: 20px;
+                    text-align: center;
+                    line-height: 22px;
+                    font-size: 14px;
                     max-width: 250px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                >#step-1 {
+
+                    >.title {
+                        max-width: 300px;
+                        margin-top: 10px;
+                        margin-bottom: 30px;
+                        font-weight: 900;
+                        line-height: 20px;
+                    }
+
+                    >.confirm-btns {
+                        display: flex;
+                        justify-content: center;
+                        gap: 20px;
+                        margin-top: 40px;
+                    }
+                }
+
+                >#step-2 {
+
+                    >.add-convidado-btn {
+                        display: block;
+                        margin: 15px auto 0 auto;
+                        border-width: 1px;
+                        font-weight: 500;
+                    }
+
+                    >.convidados-inputs {
+                        display: block;
+                        display: flex;
+                        flex-flow: column;
+                        align-items: center;
+                        gap: 10px;
+                        margin-bottom: 10px;
+
+                        >.vc-input {
+                            max-width: 250px;
+                        }
+                    }
+
+                    >.send-btn {
+                        display: block;
+                        margin: auto;
+                        width: 165px;
+                        margin-top: 30px;
+                    }
                 }
             }
-
-            >.send-btn{
-                display: block;
-                margin: auto;
-                width: 165px;
-                margin-top: 30px;
-            }
-        }
         }
     }
+}
+
+.-hide {
+    display: none !important;
 }

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, user-scalable=0, minimal-ui, maximum-scale=1.0,initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=0, minimal-ui, maximum-scale=1.0,initial-scale=1, viewport-fit=cover" />
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -24,11 +26,7 @@
     <meta property="twitter:description" content="Caroline & Vitor - Confirmação de presença 😊" />
     <meta name="description" property="og:description" content="Caroline & Vitor - Confirmação de presença 😊" />
 
-    <meta
-    name="image"
-    property="og:image"
-    content="https://i.imgur.com/idY1cep.jpg"
-    />
+    <meta name="image" property="og:image" content="https://i.imgur.com/idY1cep.jpg" />
     <meta property="twitter:image" content="https://i.imgur.com/idY1cep.jpg" />
     <meta name="type" property="og:type" content="website" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -36,31 +34,73 @@
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@100&family=Rosario:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@100&family=Rosario:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <script type="module" src="confirmacao.js"></script>
 </head>
+
 <body class="confirmacao">
     <div id="vc-header"></div>
-    
+
     <main class="content">
-        <form class="form">
+        <div id="confirmed" class="-hide">
+            <div class="text">
+                Você já confirmou presença. Caso queira alterar ou acrescentar alguma observação, por favor contatar os
+                noivos 😊
+            </div>
+
+            <a class="vc-button -small -fill" href="https://vitortakara.github.io/vc-casaments/pages/home/">Ir para o
+                início</a>
+
+        </div>
+        <form class="form" id="form">
             <div class="content">
-                <div class="into-text">
-                    Olá, tudo bem? Por favor, Confirme abaixo a sua presença e de seus acompanhantes! A confirmação é obrigatória.
+
+                <div id="step-1">
+                    <div class="title">
+                        Olá, tudo bem? Você e seus acompanhantes confirmam presença no casamento?
+                    </div>
+
+                    <div class="into-text">
+                        Por favor, Confirme abaixo a sua presença e de seus acompanhantes! A confirmação é obrigatória.
+                    </div>
+
+                    <div class="confirm-btns">
+                        <div class="vc-button" onclick="go('n')">NÃO VOU</div>
+                        <div class="vc-button -fill" onclick="go('s')">EU VOU!</div>
+                    </div>
                 </div>
 
-                <div class="convidados-inputs" id="convidados-inputs">
+                <div id="step-2" class="-hide">
+                    <div class="into-text" id="message-not-going">
+                        Poxa, que pena que você não irá. Nós entendemos!... Por favor indique abaixo o seu nome e a das
+                        pessoas que não irão
+                    </div>
 
+                    <div class="into-text" id="message-going">
+                        Obaa!! 🥳 Agradecemos por confirmar sua presença no nosso casamento. Sua presença tornará nosso
+                        dia ainda mais especial. ❤️
+                    </div>
+
+                    <div class="convidados-inputs" id="convidados-inputs">
+
+                    </div>
+
+                    <button class="vc-button -small -rounded add-convidado-btn" type="button" id="add-convidado-btn"
+                        onclick="convidadoInputHandler()">+ Adicionar convidado</button>
+
+                    <textarea id="input-not-going" style="resize: none; margin-top: 40px;" rows="5" class="vc-input"
+                        placeholder="Mensagem (opcional)"></textarea>
+
+                    <button class="vc-button -fill send-btn" type="button" onclick="submitForm()">Enviar</button>
                 </div>
-
-                <button class="vc-button -small -rounded add-convidado-btn" type="button" id="add-convidado-btn" onclick="convidadoInputHandler()">+ Adicionar convidado</button>
-
-                <button class="vc-button -fill send-btn" type="button" onclick="submitForm()">Enviar</button>
             </div>
         </form>
     </main>
 
     <div id="vc-footer"></div>
 </body>
+
 </html>

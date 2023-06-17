@@ -121,16 +121,26 @@ window.goToPayment = () => {
         return;
     }
 
+    let payload = JSON.stringify({
+        name,
+        message,
+        gift: localStorage.getItem("gift"),
+        date: new Date()
+    })
+
     fetch('https://64833b17f2e76ae1b95c2cd2.mockapi.io/api/gift1', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            name,
-            message,
-            gift: localStorage.getItem("gift"),
-            date: new Date()
+        body: payload
+    }).catch(() => {
+        fetch('https://64833b17f2e76ae1b95c2cd2.mockapi.io/api/gift2', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: payload
         })
     })
 
@@ -138,29 +148,29 @@ window.goToPayment = () => {
 }
 
 window.selectPayment = (paymentMethod) => {
-    if(paymentMethod === 'cc')
-    Swal.fire({
-        title: 'Pagamento no Cartão',
-        html: 'Para finalizar o pagamento, você será redirecionado para o site oficial do Mercado Pago. <br>Não se preocupe, nós (Caroline e Vitor) garantimos que o processo é 100% seguro.',
-        icon: 'info',
-        confirmButtonText: 'Ir para pagamento',
-        confirmButtonColor: 'var(--color-primary)'
-    }).then((r) => {
-        if(r.isConfirmed){
-        let link = localStorage.getItem("giftlink");
-        if (link) window.location.href = link;
-        else {
-            Swal.fire({
-                title: 'Ops!',
-                text: 'Algo deu errado... Tente novamente mais tarde :(',
-                icon: 'error',
-                confirmButtonText: 'Ok',
-                confirmButtonColor: 'var(--color-primary)'
-            })
-            changeStep(1);
-        }
-    }
-    })
+    if (paymentMethod === 'cc')
+        Swal.fire({
+            title: 'Pagamento no Cartão',
+            html: 'Para finalizar o pagamento, você será redirecionado para o site oficial do Mercado Pago. <br>Não se preocupe, nós (Caroline e Vitor) garantimos que o processo é 100% seguro.',
+            icon: '',
+            confirmButtonText: 'Ir para pagamento',
+            confirmButtonColor: 'var(--color-primary)'
+        }).then((r) => {
+            if (r.isConfirmed) {
+                let link = localStorage.getItem("giftlink");
+                if (link) window.location.href = link;
+                else {
+                    Swal.fire({
+                        title: 'Ops!',
+                        text: 'Algo deu errado... Tente novamente mais tarde :(',
+                        icon: 'error',
+                        confirmButtonText: 'Ok',
+                        confirmButtonColor: 'var(--color-primary)'
+                    })
+                    changeStep(1);
+                }
+            }
+        })
     else {
         // PIX Mode
         let giftValue = parseFloat(localStorage.getItem("gift"));
@@ -170,27 +180,27 @@ window.selectPayment = (paymentMethod) => {
         switch (giftValue) {
             case 250:
                 img = qr250;
-            break;
+                break;
 
             case 500:
                 img = qr500;
-            break;
+                break;
 
             case 1000:
                 img = qr1000;
-            break;
+                break;
 
             case 2500:
                 img = qr2500;
-            break;
+                break;
 
             case 5000:
                 img = qr5000;
-            break;
+                break;
 
             case 10000:
                 img = qr10000;
-            break;
+                break;
         }
 
         document.querySelector('#qr-code-area').setAttribute('src', img);
@@ -221,9 +231,9 @@ window.selectGift = (presentId) => {
     // Reset Styles
     giftSelectedImg.innerHTML = "";
     giftSelectedImg.style.background = `url('')`;
-    
+
     // Set Bg
-    if(giftSelected.img){
+    if (giftSelected.img) {
         giftSelectedImg.style.background = `url(${giftSelected.img})`;
         giftSelectedImg.style.backgroundPosition = 'center';
         giftSelectedImg.style.backgroundSize = 'cover';
@@ -239,7 +249,7 @@ window.selectGift = (presentId) => {
                 onloadedmetadata="this.muted = true"
             ></video>
         `)
-                
+
     }
 
     document.querySelector("#gift-selected-name").innerHTML = giftSelected.title;
