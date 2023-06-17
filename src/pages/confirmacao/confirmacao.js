@@ -38,11 +38,7 @@ window.go = (answer) => {
     document.querySelector("#step-2").classList.remove('-hide');
 }
 
-window.submitForm = () => {
-    // Bloqueia usuario de seguir com submit
-    // if(JSON.parse(localStorage.getItem('formHasAlreadySubmited'))) return;
-    
-
+window.submitForm = () => {   
     Swal.fire({
         title: localStorage.getItem('go')  === 's' ? 'Confirmar presença' : 'Enviar nomes',
         html:  `
@@ -80,7 +76,7 @@ window.submitForm = () => {
             let payload = JSON.stringify({
                 date: new Date(),
                 participants: convidados,
-                go: localStorage.getItem('go', 's') ? true : false,
+                go: localStorage.getItem('go') === 's' ? true : false,
                 message: document.querySelector("#input-not-going").value || "",
             })
 
@@ -120,7 +116,9 @@ window.afterConfirmationFetch = () => {
     localStorage.setItem('formHasAlreadySubmited', true)
 }
 
-window.removeConvidadoInput = () => document.querySelector('#add-convidado-btn').remove();
+window.removeConvidadoInput = () => {
+    document.querySelector('#add-convidado-btn').remove()
+};
 
 window.convidadoInputHandler = () => {
     if (convidadosTotal === 1) removeConvidadoInput();
@@ -149,9 +147,23 @@ window.buildInputsFromUrlParams = () => {
     const urlParams = new URL(location.href);
     const pParam = urlParams.searchParams.get("p");
 
+    
     // Se não ter parametros
     if (!pParam) {
         removeConvidadoInput();
+    
+        Swal.fire({
+            title: 'Link com erro',
+            html:  `
+                Por favor entre em contato com os noivos.
+            `,
+            icon: 'error',
+            confirmButtonText: 'Ok!',
+            confirmButtonColor: 'var(--color-primary)'
+        }).then((r) => {
+            window.location.href = "https://vitortakara.github.io/vc-casaments/pages/home/";
+        })
+
         return;
     }
 

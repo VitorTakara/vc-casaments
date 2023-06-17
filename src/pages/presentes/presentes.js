@@ -34,7 +34,7 @@ const presentList = [{
     title: 'Bronze 🤎',
     price: 250,
     img: p250,
-    mp: 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/da951989-0398-4ea8-8246-9f2a6fbe0d4f/payment-option-form/?router-request-id=30120a6a-492d-415d-8a09-c5b2c8434c5d&source=link&preference-id=308997953-ec15336e-3069-4a85-8f9b-b4a40ced94a3&p=5765991c1973d3a6e91b79c210aa1374#/',
+    mp: 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/a9d572cd-5261-4099-b3dc-1fb675f43958/payment-option-form/?router-request-id=5d4835a5-ed47-4d32-a8a8-d5140a75879a&source=link&preference-id=308997953-ec15336e-3069-4a85-8f9b-b4a40ced94a3&p=75d58db4a13119a7cca04eb770bb231f#/',
     qr: '00020126400014BR.GOV.BCB.PIX0118vtakaraa@gmail.com5204000053039865406250.005802BR5925Vitor Masaaki De Jesus Ta6009SAO PAULO61080540900062260522VITORCAROLINECASAMENTO63041704'
 }, {
     id: 2,
@@ -83,6 +83,7 @@ window.getPresentCardTemplate = (present) => {
                     src="${present.video}"
                     loop
                     muted
+                    disableRemotePlayback
                     autoplay
                     playsinline
                     oncanplay="this.play()"
@@ -254,6 +255,7 @@ window.selectGift = (presentId) => {
                 src="${giftSelected.video}"
                 loop
                 muted
+                disableRemotePlayback
                 autoplay
                 playsinline
                 oncanplay="this.play()"
