@@ -134,14 +134,25 @@ window.goToPayment = () => {
             'Content-Type': 'application/json'
         },
         body: payload
-    }).catch(() => {
-        fetch('https://64833b17f2e76ae1b95c2cd2.mockapi.io/api/gift2', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: payload
-        })
+    }).then((res) => {
+        if(res.ok) return;
+
+        if(res.status === 400)
+            fetch('https://64833b17f2e76ae1b95c2cd2.mockapi.io/api/gift2', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: payload
+            })
+        else
+            Swal.fire({
+                title: 'Ops!',
+                text: 'Algo deu errado nos nossos serviços... Por favor contatar um dos noivos',
+                icon: 'error',
+                confirmButtonText: 'Fechar',
+                confirmButtonColor: 'var(--color-primary)'
+            })
     })
 
     changeStep(3);

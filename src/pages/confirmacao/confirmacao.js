@@ -90,16 +90,25 @@ window.submitForm = () => {
                     'Content-Type': 'application/json'
                 },
                 body: payload
-            }).then(() => window.afterConfirmationFetch()).catch(() => {
-                fetch('https://64833921f2e76ae1b95c2935.mockapi.io/api/confirmation2', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: payload
-                }).then(() => window.afterConfirmationFetch()
-
-                )
+            }).then((res) => {
+                if(res.status === 400)
+                    fetch('https://64833921f2e76ae1b95c2935.mockapi.io/api/confirmation2', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: payload
+                    }).then(() => window.afterConfirmationFetch())
+                else if(res.ok)
+                    window.afterConfirmationFetch()
+                else
+                    Swal.fire({
+                        title: 'Ops!',
+                        text: 'Algo deu errado nos nossos serviços... Por favor contatar um dos noivos',
+                        icon: 'error',
+                        confirmButtonText: 'Fechar',
+                        confirmButtonColor: 'var(--color-primary)'
+                    })
             })
         }
     })
