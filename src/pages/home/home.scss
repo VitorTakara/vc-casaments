@@ -251,7 +251,7 @@
 
                     &::before {
                         @include afterLineCss;
-                        left: 120px;
+                        left: 215px;
                     }
                 }
             }
@@ -259,6 +259,22 @@
             >.date {
                 font-size: 20px;
                 margin: 40px 0;
+            }
+
+            >.dress-code{
+                margin-top: 40px;
+                display: flex;
+                flex-flow: column;
+                gap: 8px;
+                
+
+                >.highlight {
+                    font-weight: 600;
+                }
+                
+                >.text {
+                    color: var(--color-primary) !important;
+                }
             }
 
             >.local {
@@ -274,9 +290,9 @@
                     font-weight: 600;
                 }
 
-                >.small-text{
-    font-size: 14px;
-    font-weight: 100;
+                >.small-text {
+                    font-size: 14px;
+                    font-weight: 100;
                 }
             }
         }
@@ -300,6 +316,7 @@
 
             >.content {
                 padding: 0 15px;
+
                 @media (min-width: 600px) {
                     max-width: 500px;
                     margin: 0 auto;
